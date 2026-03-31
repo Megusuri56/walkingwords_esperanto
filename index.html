@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="referrer" content="never">
+    <title>散步背单词-世界语</title>
+    <meta name="author" content="目薬">
+    <meta name="copyright" content="目薬">
+    <meta name="description" itemprop="description" content="一个背世界语单词的网站" />
+    <meta itemprop="name" content="散步背单词"/>
+    <meta property="og:title" content="散步背单词" />
+    <meta id="image" itemprop="image" content="https://megusuri56.github.io/walkingwords/img/favicon.png"/>
+    <link rel="shortcut icon" href="img/favicon.png">
+    <style type="text/css">
+        .topright{
+        position:absolute;
+        top:8px;
+        right:8px;
+        line-height:0%;
+        font-size:0.85em;
+        color:#009900;
+        vertical-align:top;
+        }
+        .hintText{
+        line-height:50%;
+        font-size:0.6em;
+        color:#009900;
+        }
+        .hintTextMobile{
+    padding: 3px 10px;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 6px;
+    background: #B8DBB8;
+    border-width: 0;
+        }
+        #switchMobile{ 
+            margin-top:30px; 
+            height:22px;
+            position:absolute;
+            bottom:10%;
+            left:5%
+         }
+        #switchMobile span {
+	background:#B8DBB8;
+	
+	padding: 5px 30px 5px 30px;
+	font-size:16px;
+	font-weight:bold;
+	border-radius:10px;
+	
+	-webkit-transition:all linear 0.30s;
+	-moz-transition:all linear 0.30s;
+	transition:all linear 0.30s;	
+        }
+        .knowMobile{ 
+    position: absolute;
+    right: 52%;
+    padding: 5px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    background: #b8dbb8;
+    border-width: 0;
+         }
+        .notknowMobile{ 
+    position: absolute;
+    left: 52%;
+    padding: 5px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    background: #b8dbb8;
+    border-width: 0;
+         }
+        .helpBG{position:absolute;top:0;left:0;width:100%;height:100%;}
+        .helpBox{
+                  overflow:auto;
+	font-weight:bold;
+                  position:absolute;
+                  top:10%;
+                  left:6%;
+                  width:70%;
+                  height:70%;
+	padding: 5px 30px 5px 30px;
+	border-radius:10px;
+	background:#ffffff;	
+	opacity:0.9;
+                  filter:alpha(opacity=90);
+        }
+        .top{
+        position:absolute;
+        top:0px;
+        left:-3px;
+        width:103%;
+        vertical-align:top;
+        }
+        .bottom{
+        position:absolute;
+        bottom:2px;
+        left:2px;
+        width:99%;
+        vertical-align:bottom;
+        }
+#color_switch_orange 
+{
+    position:absolute;
+    border:solid 2px #ffc960;
+    border-top-left-radius:10px;
+    border-bottom-left-radius:10px;
+    width:100px;
+    padding: 12px 0;
+	background:#ffd480;
+	font-weight:bold;
+                  text-align:center;
+    box-shadow:inset 0px -5px 5px #ffc960, inset 0px 5px 5px #ffdfa0;
+	}
+#color_switch_gray 
+{
+    position: absolute;
+    left: 133px;
+    border: solid 2px #d4d4d4;
+    width: 100px;
+    padding: 12px 0;
+    background: #dfdfdf;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: inset 0px -5px 5px #d4d4d4, inset 0px 5px 5px #E2E2E2;
+	}
+#color_switch_green
+{
+    position: absolute;
+    left: 233px;
+    border: solid 2px #ABCCAB;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100px;
+    padding: 12px 0;
+    background: #ABCCAB;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: inset 0px -5px 5px #009900, inset 0px 5px 5px #eeeeee;
+	}
+#color_switch_orange_click 
+{
+    position:absolute;
+    border:solid 2px #ffc960;
+    border-top-left-radius:10px;
+    border-bottom-left-radius:10px;
+    width:100px;
+    padding: 12px 0;
+	background:#ffd480;
+	font-weight:bold;
+                  text-align:center;
+    box-shadow:inset 0px 5px 5px #ffc960, inset 0px -5px 5px #ffdfa0;
+	}
+#color_switch_gray_click 
+{
+    position: absolute;
+    left: 133px;
+    border: solid 2px #d4d4d4;
+    width: 100px;
+    padding: 12px 0;
+    background: #dfdfdf;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: inset 0px 5px 5px #d4d4d4, inset 0px -5px 5px #E2E2E2;
+	}
+#color_switch_green_click 
+{
+    position: absolute;
+    left: 233px;
+    border: solid 2px #ABCCAB;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100px;
+    padding: 12px 0;
+    background: #ABCCAB;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: inset 0px 5px 5px #009900, inset 0px -5px 5px #eeeeee;
+	}
+    </style>
+</head>
+
+<body style="background-color:#ABCCAB">
+</div>
+<div class="bottom">
+    <div id="notknowLine" style="background:#ffffff;position:absolute;top:inherit;bottom:inherit;height:10px;width:10px;border-radius:10px" colorable="5"></div>
+    <div id="knowLine" style="background:#336633;position:absolute;top:inherit;bottom:inherit;height:10px;width:0px;border-radius:10px" colorable="3"></div>
+</div>
+<div class="topright">
+    <img src="img/settings.png" onclick='document.getElementsByClassName("help")[1].removeAttribute("hidden")'></img>
+   <img src="img/info.png" onclick='document.getElementsByClassName("help")[0].removeAttribute("hidden")'></img>
+</div>
+<div id="text">
+    <h2>背单词</h2>
+    <h4 id="word">加载中，请稍候...</h4>
+    <h4 id="meaning" hidden></h4>
+</div>
+
+<form name="input" onsubmit="return false;">
+        <input type="text" name="inputbox" autocomplete="off" onkeydown="check()" onmousemove="showHint()" onmouseout="hideHint()" hidden />
+        <span class="hintText" id="notknowW" style="text-decoration-line:underline" onclick="notknowAct()" colorable="4" hidden>查看答案</span>
+</form>
+    <p class="hintText" id="hint" colorable="4" ><br /></p>
+</div>
+<div id="buttons">
+    <button class="knowButton" id="know" onclick="knowAct()" hidden>我认识</button>
+    <button class="notknowButton" id="notknow" onclick="notknowAct()" hidden>我不认识</button>
+</div>
+    <br /><br />
+    <p style="line-height:0%"></p>
+<div id="switchBox" hidden>
+    <div id="switch" onclick="modeswitch()"><button>切换模式</button></div>
+</div>
+    <p class="hintText" id="amount" style="line-height:110%" colorable="4"  hidden><br />你今天已经认识了<span>_</span>个单词，总共打卡<span>_</span>天，认识了<span>_</span>个单词</p>
+
+<div class="help" hidden>
+    <div class="helpBG" onclick='document.getElementsByClassName("help")[0].setAttribute("hidden",true)'></div>
+    <div class="helpBox">
+    <div id="helpText">
+    <p>你好！这是我制作的背单词网页，祝你使用愉快！</p>
+    <p>本网站使用Cookie存储你的背单词数据，所以正常情况下不要清空Cookie！</p>
+    <p>三个月没有打开这个网站的话数据会自动删除哦，所以请按时打卡吧！</p>
+    <p>更新时数据也有可能自动清除。此外，如果出现异常情况，也可以尝试清空Cookie。</p>
+    <p>我的Github账号：<a href="https://github.com/Megusuri56" target="_blank">https://github.com/Megusuri56</a>，欢迎关注我！</p>
+    <p style="text-align: right">目薬</p>
+    </div>
+    <img id="help_1" src="img/help_1.png" title="help_1" style="position: absolute;width: 90%;max-height: 90%;margin: auto;max-width: 579px;top:5%;bottom:5%;left:5%;right:5%" hidden></img>
+    <img id="page_left" src="img/page_left_disabled.png" title="向左翻页" style="position:absolute;bottom: 10px;left:47%" hidden></img>
+    <img id="page_right" src="img/page_right.png" title="向右翻页" style="position:absolute;bottom: 10px;left:53%" onclick="page_right(0)" hidden></img>
+    </div>
+</div>
+<div class="help" id="settings" hidden>
+    <div class="helpBG" id="settingsBG" onclick='document.getElementsByClassName("help")[1].setAttribute("hidden",true)'></div>
+    <div class="helpBox">
+    <div id="settings_inner">
+    <p>打卡所需单词数：</p>
+    <input type="number" id="number_wa" min="10" max="200" style='width:100px;font-weight:bold;border-radius:5px;background-color:#fde5ba' onblur="inputWA()" colorable="2" />
+    <p>存储的最大错误单词数：</p>
+    <input type="number" id="number_oa" min="0" max="80" style='width:100px;font-weight:bold;border-radius:5px;background-color:#fde5ba' onblur="inputOA()"  colorable="2" />
+    <span class="hintText" style="font-weight:normal" colorable="4">需小于打卡所需单词数</span>
+     <p>配色模式</p>
+     <div id="color_switch_orange" onclick="color_change_orange()"><span style="color:#FFB930">橙</span><span style="color:#F2F2C2">黄</span></div>
+     <div id="color_switch_gray" onclick="color_change_gray()"><span style="color:#FFB930">橙</span><span style="color:#a3a3a3">灰</span></div>
+     <div id="color_switch_green_click"><span style="color:#009900">绿</span><span style="color:#ffffff">白</span></div>
+    </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var word;
+    var mode = "read";
+    var knowAmount = 0;
+    var wordsAmount = 50;
+    var oldwordsAmount = 35;
+    var days = 0;
+    var allwords = 0;
+    var d = new Date();
+    d.setTime(d.getTime()+90*24*60*60*1000);
+    var expires = "expires="+d.toGMTString();
+    var today = new Date();
+    today.setTime(today.getTime());
+    var punchedIn = 0;
+    var color_mode = "green";
+    var notknowArr = new Array();
+    var wordList;    
+    var showAnswer = false;
+
+    checkBrowser();
+    checkCookie();
+    if (color_mode=="orange"){color_change_orange();}
+    if (color_mode=="gray"){color_change_gray();}
+    showWord();
+    document.getElementById("amount").removeAttribute("hidden");
+    //document.getElementById("voice").removeAttribute("hidden");
+    //document.getElementById("switch").removeAttribute("hidden");
+    document.getElementById("number_wa").setAttribute("value",wordsAmount.toString());
+    document.getElementById("number_oa").setAttribute("value",oldwordsAmount.toString());
+
+    function checkCookie()
+    {
+        var cookie = document.cookie;
+        if (cookie == "")
+        {
+            setCookie();
+        }
+        else
+        {
+            if (getCookie("today")==""){document.cookie = "today="+today.toLocaleDateString()+";"+expires;}
+            if (getCookie("knowAmount")==""){document.cookie = "knowAmount="+knowAmount.toString()+";"+expires;}
+            if (getCookie("wordsAmount")==""){document.cookie = "wordsAmount="+wordsAmount.toString()+";"+expires;}
+            if (getCookie("oldwordsAmount")==""){document.cookie = "oldwordsAmount="+oldwordsAmount.toString()+";"+expires;}
+            if (getCookie("days")==""){document.cookie = "days="+days.toString()+";"+expires;}
+            if (getCookie("allwords")==""){document.cookie = "allwords="+allwords.toString()+";"+expires;}
+            if (getCookie("punchedIn")==""){document.cookie = "punchedIn="+punchedIn.toString()+";"+expires;}
+            if (getCookie("color_mode")==""){document.cookie = "color_mode="+color_mode+";"+expires;}
+            if (getCookie("mode")==""){document.cookie = "mode="+mode+";"+expires;}
+
+            if (getCookie("today")==today.toLocaleDateString())
+            {
+                knowAmount = Number(getCookie("knowAmount"));
+                punchedIn = Number(getCookie("punchedIn"));
+            }
+            days = Number(getCookie("days"));
+            allwords = Number(getCookie("allwords"));
+            wordsAmount = Number(getCookie("wordsAmount"));
+            oldwordsAmount = Number(getCookie("oldwordsAmount"));
+            color_mode = getCookie("color_mode");
+            mode = getCookie("mode");
+            getNKArr();
+        }
+    }
+
+    function setCookie()
+    {
+        document.cookie = "knowAmount="+knowAmount.toString()+";"+expires;
+        document.cookie = "wordsAmount="+wordsAmount.toString()+";"+expires;
+        document.cookie = "oldwordsAmount="+oldwordsAmount.toString()+";"+expires;
+        document.cookie = "days="+days.toString()+";"+expires;
+        document.cookie = "allwords="+allwords.toString()+";"+expires;
+        document.cookie = "today="+today.toLocaleDateString()+";"+expires;
+        document.cookie = "punchedIn="+punchedIn.toString()+";"+expires;
+        document.cookie = "color_mode="+color_mode+";"+expires;
+        document.cookie = "mode="+mode+";"+expires;
+        setNKCookie();
+    }
+
+function getCookie(cname)
+{
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0; i<ca.length; i++) 
+  {
+    var c = ca[i].trim();
+    if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+  }
+  return "";
+}
+
+    function showHint()
+    {
+         document.getElementById("hint").innerHTML = "输入假名，按空格提交单词";
+    }
+    function hideHint()
+    {
+         document.getElementById("hint").innerHTML = "<br />";
+    }
+
+    function modeswitch()
+    {
+        if(mode =="write")
+        {
+            mode = "read";
+        }
+        else
+        {
+            mode = "write";
+        }
+        modeAct();
+        setCookie();
+    }
+
+function modeAct()
+{
+if(mode =="write")
+        {
+            document.getElementById("word").innerHTML=word.w;//word.w：日语单词
+            document.getElementById("know").setAttribute("hidden",true);
+            document.getElementById("notknow").setAttribute("hidden",true);
+            document.forms["input"]["inputbox"].removeAttribute("hidden");
+            document.getElementById("meaning").removeAttribute("hidden");
+            document.getElementById("notknowW").removeAttribute("hidden");
+            document.forms["input"]["inputbox"].value = "";
+	    document.forms["input"]["inputbox"].focus();
+        }
+        else
+        {
+            document.getElementById("word").innerHTML=word.w+"("+word.f+")";//word.f：日语假名
+            document.getElementById("know").removeAttribute("hidden");
+            document.getElementById("notknow").removeAttribute("hidden");
+            document.forms["input"]["inputbox"].setAttribute("hidden",true);
+            document.getElementById("meaning").setAttribute("hidden",true);
+            document.getElementById("notknowW").setAttribute("hidden",true);
+            document.getElementById("know").innerHTML="我认识";
+            document.getElementById("know").onclick=knowAct;
+        }
+}
+
+function checkMobile()
+{
+let input = document.forms["input"]["inputbox"].value;
+if(input==word.f+" ")
+{
+if (!showAnswer){knowAct();}else{showWord();}
+}
+} 
+
+function check()
+{
+let input = document.forms["input"]["inputbox"].value;
+if(input==word.f&&(event.keyCode==32||event.keyCode==229))
+{
+if (!showAnswer){knowAct();}else{showWord();}
+}
+} 
+
+function showWord()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    wordList = JSON.parse(xmlhttp.responseText);
+    wordList = wordList.RECORDS;
+
+    document.getElementById("word").style.color="#000000";
+    let i=wordsAmount-knowAmount;
+    if (i<=0){i=2*notknowArr.length;}//打卡完成之后，新词率=0.5
+    i = i * Math.random();
+    if (i>=notknowArr.length)//新词概率=1-（notknowArr.length/剩余打卡词数）
+    {
+        word = wordList[Math.round(Math.random()*wordList.length-1)];
+    }
+    else
+    {
+        let j = Math.round(Math.random()*(notknowArr.length-1));
+        word = findNK(notknowArr[j]);
+        document.getElementById("word").style.color ="#994d00";
+    }
+    document.getElementById("meaning").innerHTML=word.m;
+    modeAct();
+    showAnswer=false;
+    document.getElementById("amount").getElementsByTagName("span")[0].innerHTML=knowAmount.toString();
+    document.getElementById("amount").getElementsByTagName("span")[1].innerHTML=days.toString();
+    document.getElementById("amount").getElementsByTagName("span")[2].innerHTML=allwords.toString();
+    notknowLineGrow();
+    knowLineGrow();
+    }
+}
+xmlhttp.open("GET","https://megusuri56.github.io/walkingwords_esperanto/words.json",true);
+xmlhttp.send();
+}
+    function showMeaning()
+    {
+    document.getElementById("meaning").removeAttribute("hidden");
+    }
+    function showFurigana()
+    {
+    document.getElementById("word").innerHTML=word.w+"("+word.f+")";
+    showAnswer=true;
+    }
+function Voice()
+{
+var tkk = eval('((function(){var a\x3d222433949;var b\x3d4070417730;return 422881+\x27.\x27+(a+b)})())');
+function tk(a,TKK) {
+        for (var e = TKK.split("."), h = Number(e[0]) || 0, g = [], d = 0, f = 0; f < a.length; f++) {
+            var c = a.charCodeAt(f);
+            128 > c ? g[d++] = c : (2048 > c ? g[d++] = c >> 6 | 192 : (55296 == (c & 64512) && f + 1 < a.length && 56320 == (a.charCodeAt(f + 1) & 64512) ? (c = 65536 + ((c & 1023) << 10) + (a.charCodeAt(++f) & 1023), g[d++] = c >> 18 | 240, g[d++] = c >> 12 & 63 | 128) : g[d++] = c >> 12 | 224, g[d++] = c >> 6 & 63 | 128), g[d++] = c & 63 | 128)
+        }
+        a = h;
+        for (d = 0; d < g.length; d++) a += g[d], a = b(a, "+-a^+6");
+        a = b(a, "+-3^+b+-f");
+        a ^= Number(e[1]) || 0;
+        0 > a && (a = (a & 2147483647) + 2147483648);
+        a %= 1E6;
+        return a.toString() + "." + (a ^ h)
+    }
+function b(a, b) {
+        for (var d = 0; d < b.length - 2; d += 3) {
+            var c = b.charAt(d + 2),
+                c = "a" <= c ? c.charCodeAt(0) - 87 : Number(c),
+                c = "+" == b.charAt(d + 1) ? a >>> c : a << c;
+            a = "+" == b.charAt(d) ? a + c & 4294967295 : a ^ c
+        }
+        return a
+    }
+var URL = "https://translate.google.cn/translate_tts?ie=UTF-8&q="+word.w+"&tl=ja&ie=UTF-8&total=1&idx=0&textlen=39&tk="+tk(word.w,tkk)+"&client=t&prev=input";
+var a = new Audio(URL);
+a.play();
+}
+function checkBrowser()
+{
+if (!!navigator.userAgent.match(/AppleWebKit.*Mobile.*/))
+{
+    document.getElementsByTagName("h2")[0].innerHTML="背单词<br /><br />";
+    document.getElementById("text").style="font-size:1.1em"
+    document.getElementById("word").style="text-align: center;font-size:2em";
+    document.getElementById("meaning").style="text-align: center";
+    document.getElementById("buttons").style="margin-left:20%";
+    document.getElementById("notknowW").style="text-decoration-line:underline;font-size:1.1em";
+    document.getElementsByClassName("knowButton")[0].className="knowMobile";
+    document.getElementsByClassName("knowMobile")[0].setAttribute("colorable","1");
+    document.getElementsByClassName("notknowButton")[0].className="notknowMobile";
+    document.getElementsByClassName("notknowMobile")[0].setAttribute("colorable","1");
+    document.getElementById("notknowW").className="hintTextMobile";
+    document.getElementById("notknowW").style="";
+    document.getElementById("notknowW").setAttribute("colorable","2");
+    document.getElementById("switchBox").id="switchMobile";
+    document.getElementById("switch").innerHTML='<span colorable="2">切换模式</span>';
+    document.getElementById("amount").style="line-height:130%;position:absolute;bottom:10px";
+    for(let i of document.getElementById("amount").getElementsByTagName("span")){i.style="font-size:2em";}
+    document.getElementsByClassName("bottom")[0].className="top";
+    for(let i of document.getElementsByClassName("topright")){i.style.top="20px";}
+    document.forms["input"]["inputbox"].oninput=checkMobile;
+    document.forms["input"]["inputbox"].onkeydown=null;
+}
+}
+function punchIn()
+{
+    days++;
+    punchedIn=1;
+    alert("✨恭喜你，成功打卡！✨\n✨Gratulon,vi finis la taskon hodiaŭ!✨");
+}
+
+function notknowAct()
+{
+if (mode=="write")
+{
+    showFurigana();
+}
+else
+{
+    showMeaning();
+    document.getElementById("know").innerHTML="下一个";
+    document.getElementById("know").onclick=showWord;
+}
+addNK(word.f);
+notknowLineGrow();
+setCookie();
+}
+function knowAct()
+{
+    deleteNK(word.f);
+    showWord();
+    knowAmount++;
+    allwords++;
+    knowLineGrow();
+    if (knowAmount>=wordsAmount&&punchedIn==0)
+    {
+        punchIn();
+    }
+    setCookie();
+}
+function getNKArr()
+{
+  for(let i=0; i<oldwordsAmount; i++) 
+  {
+    addNK(getCookie("w"+i.toString()));
+  }
+}
+function setNKCookie()
+{
+  for(let i=0; i<notknowArr.length; i++) 
+  {
+        document.cookie = "w"+i.toString()+"="+notknowArr[i]+";"+expires;
+  }    
+}
+function findNK(target)
+{
+    if (notknowArr.indexOf(target)!=-1)
+    {
+        for(let w of wordList)
+        {
+            if(w.f==target)
+            {
+                return w;
+            }
+        }
+        return null;
+    }
+    else
+    {
+        return null;
+    }
+}
+function addNK(target)
+{
+    if (notknowArr.length<oldwordsAmount&&notknowArr.indexOf(target)==-1&&target!="")
+    {
+        notknowArr.push(target);
+    }
+}
+function deleteNK(target)
+{
+    let i = notknowArr.indexOf(target);
+    if (i!=-1)
+    {
+        notknowArr.splice(i,1);
+    }
+}
+function notknowLineGrow()
+{
+    let i = (knowAmount+notknowArr.length)/wordsAmount;
+    if (i>=1){i=98/99;}
+    document.getElementById("notknowLine").style.width=(i*99+1).toString()+"%";
+}
+function knowLineGrow()
+{
+    let i = knowAmount/wordsAmount;
+    if (i==0)
+    {
+        document.getElementById("knowLine").style.width="0";
+    }
+    else
+    {  
+        if (i>=1){i=98/99;}
+        document.getElementById("knowLine").style.width=(i*99+1).toString()+"%";
+         
+    }
+}
+function page_right(page)
+{
+    if (page==0)
+    {
+        document.getElementById("helpText").setAttribute("hidden",true); 
+        document.getElementById("help_1").removeAttribute("hidden");
+        document.getElementById("page_left").setAttribute("onclick","page_left(1)");
+        document.getElementById("page_left").setAttribute("src","img/page_left.png");
+        document.getElementById("page_right").setAttribute("src","img/page_right_disabled.png");
+    }
+}
+function page_left(page)
+{
+    if (page==1)
+    {
+        document.getElementById("help_1").setAttribute("hidden",true); 
+        document.getElementById("helpText").removeAttribute("hidden");
+        document.getElementById("page_right").setAttribute("onclick","page_right(0)");
+        document.getElementById("page_right").setAttribute("src","img/page_right.png");
+        document.getElementById("page_left").setAttribute("src","img/page_left_disabled.png");
+    }
+}
+function inputWA()
+{
+    document.getElementById("number_wa").value = Math.round(document.getElementById("number_wa").value);
+
+    if (document.getElementById("number_wa").value<10){document.getElementById("number_wa").value=10;}
+    if (document.getElementById("number_wa").value<=oldwordsAmount){document.getElementById("number_wa").value=oldwordsAmount+1;}
+    if (document.getElementById("number_wa").value>200){document.getElementById("number_wa").value=200;}
+    wordsAmount = document.getElementById("number_wa").value;
+    setCookie();
+}
+function inputOA()
+{
+    document.getElementById("number_oa").value = Math.round(document.getElementById("number_oa").value);
+    if (document.getElementById("number_oa").value>80){document.getElementById("number_oa").value=80;}
+    if (document.getElementById("number_oa").value>=wordsAmount){document.getElementById("number_oa").value=wordsAmount-1;}
+    if (document.getElementById("number_oa").value<0){document.getElementById("number_oa").value=0;}
+    oldwordsAmount = document.getElementById("number_oa").value;
+    setCookie();
+}
+function color_change_gray()
+{
+      if (color_mode=="orange")document.getElementById("color_switch_orange_click").id="color_switch_orange";
+      document.getElementById("color_switch_gray").id="color_switch_gray_click";
+      if (color_mode=="green")document.getElementById("color_switch_green_click").id="color_switch_green";
+      color_mode="gray";
+      document.getElementById("color_switch_orange").setAttribute("onclick","color_change_orange()");
+      document.getElementById("color_switch_gray_click").setAttribute("onclick","");
+      document.getElementById("color_switch_green").setAttribute("onclick","color_change_green()");
+    document.body.style.background="#ffd480";
+    for (let i of document.querySelectorAll('[colorable="1"]')){i.style.background="#b9b9b9";i.style.color="#eeeeee";}
+    for (let i of document.querySelectorAll('[colorable="2"]')){i.style.background="#dfdfdf";i.style.color="#000000";}
+    for (let i of document.querySelectorAll('[colorable="3"]')){i.style.background="#aaaaaa"}
+    for (let i of document.querySelectorAll('[colorable="4"]')){i.style.color="#cc8800"}
+    for (let i of document.querySelectorAll('[colorable="5"]')){i.style.background="#fde5ba"}
+    setCookie();
+}
+function color_change_orange()
+{
+      document.getElementById("color_switch_orange").id="color_switch_orange_click";
+      if (color_mode=="gray")document.getElementById("color_switch_gray_click").id="color_switch_gray";
+      if (color_mode=="green")document.getElementById("color_switch_green_click").id="color_switch_green";
+      color_mode="orange";
+      document.getElementById("color_switch_orange_click").setAttribute("onclick","");
+      document.getElementById("color_switch_gray").setAttribute("onclick","color_change_gray()");
+      document.getElementById("color_switch_green").setAttribute("onclick","color_change_green()");
+    document.body.style.background="#ffd480";
+    for (let i of document.querySelectorAll('[colorable="1"]')){i.style.background="#fde5ba";i.style.color="#000000";}
+    for (let i of document.querySelectorAll('[colorable="2"]')){i.style.background="#fde5ba";i.style.color="#000000";}
+    for (let i of document.querySelectorAll('[colorable="3"]')){i.style.background="#cc8800"}
+    for (let i of document.querySelectorAll('[colorable="4"]')){i.style.color="#cc8800"}
+    for (let i of document.querySelectorAll('[colorable="5"]')){i.style.background="#fde5ba"}
+    setCookie();
+}
+function color_change_green()
+{
+      document.getElementById("color_switch_green").id="color_switch_green_click";
+      if (color_mode=="orange")document.getElementById("color_switch_orange_click").id="color_switch_orange";
+      if (color_mode=="gray")document.getElementById("color_switch_gray_click").id="color_switch_gray";
+      color_mode="green";
+      document.getElementById("color_switch_orange").setAttribute("onclick","color_change_orange()");
+      document.getElementById("color_switch_gray").setAttribute("onclick","color_change_gray()");
+      document.getElementById("color_switch_green_click").setAttribute("onclick","");
+    document.body.style.background="#ABCCAB";
+    for (let i of document.querySelectorAll('[colorable="1"]')){i.style.background="#B8DBB8";i.style.color="#000000";}
+    for (let i of document.querySelectorAll('[colorable="2"]')){i.style.background="#B8DBB8";i.style.color="#000000";}
+    for (let i of document.querySelectorAll('[colorable="3"]')){i.style.background="#009900"}
+    for (let i of document.querySelectorAll('[colorable="4"]')){i.style.color="#009900"}
+    for (let i of document.querySelectorAll('[colorable="5"]')){i.style.background="#ffffff"}
+    setCookie();
+}
+</script>
+</body>
+</html>
