@@ -367,7 +367,7 @@ function modeAct()
 {
 if(mode =="write")
         {
-            document.getElementById("word").innerHTML=word.w;//word.w：日语单词
+            document.getElementById("word").innerHTML=word.w;//word.w：单词
             document.getElementById("know").setAttribute("hidden",true);
             document.getElementById("notknow").setAttribute("hidden",true);
             document.forms["input"]["inputbox"].removeAttribute("hidden");
@@ -378,7 +378,7 @@ if(mode =="write")
         }
         else
         {
-            document.getElementById("word").innerHTML=word.w+"("+word.f+")";//word.f：日语假名
+            document.getElementById("word").innerHTML=word.w;
             document.getElementById("know").removeAttribute("hidden");
             document.getElementById("notknow").removeAttribute("hidden");
             document.forms["input"]["inputbox"].setAttribute("hidden",true);
