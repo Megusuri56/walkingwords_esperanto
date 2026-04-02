@@ -238,9 +238,9 @@
     <div class="helpBox">
     <div id="settings_inner">
     <p>打卡所需单词数：</p>
-    <input type="number" id="number_wa" min="10" max="200" style='width:100px;font-weight:bold;border-radius:5px;background-color:#fde5ba' onblur="inputWA()" colorable="2" />
+    <input type="number" id="number_wa" min="10" max="200" style='width:100px;font-weight:bold;border-radius:5px;background-color:#B8DBB8' onblur="inputWA()" colorable="2" />
     <p>存储的最大错误单词数：</p>
-    <input type="number" id="number_oa" min="0" max="80" style='width:100px;font-weight:bold;border-radius:5px;background-color:#fde5ba' onblur="inputOA()"  colorable="2" />
+    <input type="number" id="number_oa" min="0" max="80" style='width:100px;font-weight:bold;border-radius:5px;background-color:#B8DBB8' onblur="inputOA()"  colorable="2" />
     <span class="hintText" style="font-weight:normal" colorable="4">需小于打卡所需单词数</span>
      <p>配色模式</p>
      <div id="color_switch_orange" onclick="color_change_orange()"><span style="color:#FFB930">橙</span><span style="color:#F2F2C2">黄</span></div>
@@ -521,7 +521,7 @@ function punchIn()
 {
     days++;
     punchedIn=1;
-    alert("✨恭喜你，成功打卡！✨\n✨Gratulon,vi finis la taskon hodiaŭ!✨");
+    alert("✨恭喜你，成功打卡！Gratulon,vi finis la taskon hodiaŭ!✨");
 }
 
 function notknowAct()
@@ -543,7 +543,6 @@ setCookie();
 function knowAct()
 {
     deleteNK(word.f);
-    showWord();
     knowAmount++;
     allwords++;
     knowLineGrow();
@@ -551,6 +550,9 @@ function knowAct()
     {
         punchIn();
     }
+    showMeaning();
+    document.getElementById("know").innerHTML="下一个";
+    document.getElementById("know").onclick=showWord;
     setCookie();
 }
 function getNKArr()
